@@ -18,7 +18,7 @@ lineData = lineString.split()
 # Assign variables to specfic items in the list
 record_id = lineData[0]   # ARGOS tracking record ID
 obs_date = lineData[2]   # Observation date
-ob_lc = lineData[4]       # Observation Location Class
+obs_lc = lineData[4]       # Observation Location Class
 obs_lat = lineData[6]     # Observation Latitude
 obs_lon = lineData[7]     # Observation Longitude
 
@@ -40,8 +40,9 @@ file_object.close()
 #Pretend we read one line of data from the file
 for lineString in line_list:
     
-    if not lineString[0] in ('#','u'):
+    if lineString[0] in ('#','u'):
         continue
+    
     #Split the string into a list of data items
     lineData = lineString.split()
     
