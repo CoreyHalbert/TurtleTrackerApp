@@ -32,13 +32,11 @@ file_name = 'raw/Sara.txt'
 file_object = open(file=file_name,mode='r')
 
 #Read contents of file into a list
-line_list = file_object.readlines()
+lineString = file_object.readline()
 
-#Close the file
-file_object.close()
 
 #Pretend we read one line of data from the file
-for lineString in line_list:
+while lineString:
     
     if lineString[0] in ('#','u'):
         continue
@@ -55,5 +53,12 @@ for lineString in line_list:
     
     #Print the location of sara
     print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
+    
+    # Move to the next line
+    lineString = file_object.readline()
+  
+# Close the file
+file_object.close()
+# %%
 
 
